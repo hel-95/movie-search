@@ -1,0 +1,109 @@
+$breakpoints-down: (
+  'small': '600px',
+  'medium': '960px',
+  'large': '1280px',
+  'xl': '1920px',
+);
+
+@mixin breakpoint-down($size) {
+  @media (max-width: map-get($breakpoints-down, $size)) {
+    @content;
+  }
+}
+
+.container {
+  //display: flex;
+  display: grid;
+  //grid-template-columns: auto auto;
+  grid-template-areas: 'poster info';
+  max-width: 1300px;
+  margin: 0 auto;
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+
+  @include breakpoint-down(medium) {
+    grid-template-areas: 'poster' 'info';
+    padding-top: 45px;
+  }
+
+  img {
+    border-radius: 5px;
+  }
+
+  .posterWrapper {
+    min-width: 300px;
+    width: 300px;
+    grid-area: poster;
+
+    @include breakpoint-down(medium) {
+      margin-bottom: -7px;
+      justify-self: center;
+    }
+  }
+
+  .infoWrapper {
+    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.75);
+    max-width: 550px;
+    min-height: 457px;
+    padding: 20px 5px 20px 20px;
+    grid-area: info;
+
+    @include breakpoint-down(medium) {
+      margin-right: 3px;
+      margin-left: 3px;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+
+  .details {
+    padding-top: 5px;
+  }
+
+  .info {
+    display: block;
+    font-family: 'Tenali Ramakrishna';
+    color: #c6ff00;
+    font-size: 1.7em;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    line-height: 0.8em;
+  }
+
+  .add {
+    line-height: 0.9em;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  p {
+    font-family: 'Lato', sans-serif;
+    margin-top: 0;
+    font-size: 1rem;
+    padding-right: 6px;
+  }
+}
+
+.reviews {
+  padding: 8px;
+  background-color: #c6ff00;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.additional {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.arrow {
+  position: absolute;
+  left: 15px;
+  cursor: pointer;
+}

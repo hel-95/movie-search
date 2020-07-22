@@ -1,0 +1,14 @@
+.genreNameContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .arrow {
+    position: absolute;
+    content: '';
+    left: 0;
+    cursor: pointer;
+    padding-left: 16px;
+    padding-top: 12px;
+  }
+}
